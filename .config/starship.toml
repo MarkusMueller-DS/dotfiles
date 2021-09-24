@@ -1,0 +1,11 @@
+# Dont print a new line at the start of the prompt
+add_newline = false
+
+# Make prompt a singe line instead of two lines
+[line_break]
+disable = true
+
+[package]
+disabled = true
+
+
