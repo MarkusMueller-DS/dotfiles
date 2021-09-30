@@ -55,8 +55,15 @@ alias l='ls -l'
 alias la='ls -a'
 alias lla='ls -la'
 alias v='vim'
+alias nv='nvim'
 alias e='exit'
 alias cat='bat'
+alias c='clear'
+alias t='tmux'      # create a new session t session_name
+alias ta='t a -t'   # attach to an existing session   
+alias tls='t ls'    # list all sessions
+alias tn='t new -t'
+alias space="ncdu"
 
 eval "$(starship init zsh)"
 

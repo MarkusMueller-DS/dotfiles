@@ -11,44 +11,30 @@
 "       \_\/ \/_________/        \/_/ \/_/    \_\/\/____________/  
                                                                
 " VIMRC @ Markus Müller 
-" created 24.09.2021
 
-
-""""""""""""""""""Plugins""""""""""""""""
-" init plugged
+""" Plugins
 call plug#begin('~/.vim/plugged')
 
-Plug 'itchyny/lightline.vim'                    
-Plug 'sheerun/vim-polyglot'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'flazz/vim-colorschemes'
+Plug 'gruvbox-community/gruvbox'
+Plug 'sheerun/vim-polyglot'
 Plug 'preservim/nerdcommenter'
-Plug 'dracula/vim'
-"Plug 'mbbill/undotree'
-"Plug 'vifm/vifm.vim'
-"Plug 'preservim/nerdtree'
-"Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-"Plug 'junegunn/fzf.vim'
-"Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
-"Plug 'ap/vim-css-color'
-"Plug 'airblade/vim-gitgutter'
-"Plug 'mhinz/vim-startify'
+Plug 'justinmk/vim-sneak'
+Plug 'christoomey/vim-tmux-navigator'
+"Plug 'ghifarit53/tokyonight-vim'
 
-call plug#end() 
+call plug#end()
 
-let g:dracula_colorterm = 0     "transpaent bg
-colorscheme dracula
 
-filetype plugin indent on       " detect the type of file that is edited
+""" Basic settings
+syntax on
 
-"""""""""""""""Basic Settings"""""""""""""
-syntax on " show syntax
-
-" config serach
-set hlsearch	" to highlight all search matches
+" config searching
+set nohlsearch	" dont highlight search result
 set incsearch	" shows matches when you type 
 set ignorecase	" lower or uppercase mathces 
 
+" relarive lien number and cursorline
 " relative line number and sursorline
 set relativenumber	" relative numbers 	
 "set cursorline		" highlight the tct line of the cursor 
@@ -71,47 +57,24 @@ set wildmode=list:longest,full  " :h wildmode for more info
 set noswapfile      " no extra swap file is created when working with buffers 
 set nobackup
 
-" folding not yet worked with so will leave here for later use 
-"set foldmethod=inden
-
 " misc
 set ttyfast			" faster scrolling
 set noerrorbells	" no sound error
 set scrolloff=3     " minimal number so screen lines to keep above and blow the cursor
 set splitbelow      " new split only below
 set nocompatible    " relevant for plugins
-
-""""""""""""Proper PEP8""""""""""""""""""
-au BufnewFile,BufRead *.py      " check if new file is a python file
-    \ set tabstop=4
-    \ set softtabstop=4
-    \ set shiftwidth=4
-    \ set textwidth=79
-    \ set expandtab
-    \ set autoindent
-
-""""""""""""""""""HTML""""""""""""""""""""
-au BufNewFile,BufRead *.js, *.html, *.css   " check if new file is a webfile
-    \ set tabstop=2
-    \ set softtabstop=2
-    \ set shiftwidth=2
+set history=500
+set ruler
 
 
+colorscheme gruvbox
+set background=dark
+hi Normal guibg=NONE ctermbg=NONE
 
+let g:sneak#label = 1
+let g:sneak#use_ic_scs = 1  " let sneak use ignorecase
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-"""""""""""""""""""""""""""PLUGIN-CONFIG"""""""""""""""""""""""""""""""""""""
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" lighline config
-set laststatus=2        " show lightline
-set noshowmode          " lightline shows modes to vim modus is unnecessary
-
-let g:lightline = {
-      \ 'colorscheme': 'darcula',
-      \ }
-" CoC-config from Github
+""" CoC Settings from github 
 " Set internal encoding of vim, not needed on neovim, since coc.nvim using some
 " unicode characters in the file autoload/float.vim
 set encoding=utf-8
@@ -120,11 +83,10 @@ set encoding=utf-8
 set hidden
 
 " Some servers have issues with backup files, see #649.
-set nobackup
 set nowritebackup
 
 " Give more space for displaying messages.
-set cmdheight=1
+set cmdheight=2
 
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
@@ -278,7 +240,7 @@ nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
-"""""""""""""""Key Bindigns"""""""""""""""
+
 " change leader to SPACE
 let mapleader = " "
 
@@ -306,7 +268,7 @@ nnoremap ä }
 nnoremap ö ] 
 
 " show hotkeys
-nmap <leader>hk :vsplit ~/.vim/hotkeys
+nmap <leader>hk :vsplit ~/.vim/hotkeys<return>
 
 " disable recording as i dont use it and i hate if i see it at the cmd line
 map q <Nop>
@@ -314,3 +276,5 @@ map q <Nop>
 " moving text
 nnoremap º :m .+1<CR>==     " º is option + j 
 nnoremap ∆ :m .-2<Cr>==     " ∆ is ooption + k
+
+
