@@ -50,6 +50,7 @@ alias cond='conda deactivate'
 alias h='cd ~' # go to home from anywhere
 alias day='/Users/markusmuller/scripts/day.sh'
 alias dayc='/Users/markusmuller/scripts/dayclose.sh'
+alias dev-tmux='/Users/markusmuller/scripts/dev-tmux.sh'
 alias ls='lsd'
 alias l='ls -l'
 alias la='ls -a'
