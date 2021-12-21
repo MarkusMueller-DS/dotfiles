@@ -16,6 +16,7 @@ local options = {
 	splitbelow = true,                       -- force all horizontal splits to go below current window
 	splitright = true,                       -- force all vertical splits to go to the right of current window
 	swapfile = false,                        -- creates a swapfile
+    termguicolors = true;
 	timeoutlen = 1000,                        -- time to wait for a mapped sequence to complete (in milliseconds)
 	undofile = true,                         -- enable persistent undo
 	updatetime = 300,                        -- faster completion (4000ms default)
@@ -23,13 +24,14 @@ local options = {
 	expandtab = true,                        -- convert tabs to spaces
 	shiftwidth = 4,                          -- the number of spaces inserted for each indentation
 	tabstop = 4,                             -- insert 2 spaces for a tab
+    cursorline = true,
 	number = true,                           -- set numbered lines
-	relativenumber = false,                  -- set relative numbered lines
+	relativenumber = true,                  -- set relative numbered lines
 	numberwidth = 4,                         -- set number column width to 2 {default 4}
 	wrap = false,                            -- display lines as one long line
 	scrolloff = 8,                           -- is one of my fav
 	sidescrolloff = 8,
-
+    signcolumn = "yes",
 }
 
 vim.opt.shortmess:append "c"
@@ -38,9 +40,9 @@ for k, v in pairs(options) do
   vim.opt[k] = v
 end
 
-vim.cmd [[set iskeyword+=-]]                -- word1-word2 will delte both words 
+vim.cmd [[set iskeyword+=-]]                -- word1-word2 will delte both words
 vim.cmd [[let g:netrw_banner = 0]]          -- banner is useless
 vim.cmd [[let g:netrw_winsize = 25]]        -- size of window
 vim.cmd [[let g:netrw_liststyle = 3]]       -- style of content
+vim.cmd [[let g:netrw_list_hide = '.DS_Store']]     -- remove .DS_Store from netrw
 
-vim.g.transparent_background = true
